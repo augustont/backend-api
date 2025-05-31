@@ -66,35 +66,35 @@ export class bonus_campaigns extends Model<bonus_campaignsAttributes, bonus_camp
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     type: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     quantity_inspections: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     bonus_amount: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     start_date: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: true,
     },
     final_date: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: true,
     },
     status: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     }
   }, {
     sequelize,
@@ -110,7 +110,7 @@ export class bonus_campaigns extends Model<bonus_campaignsAttributes, bonus_camp
           { name: "id" },
         ]
       },
-    ]
+    ],
   });
   }
 }
