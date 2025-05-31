@@ -36,15 +36,15 @@ export class messages_segmentations extends Model<messages_segmentationsAttribut
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     messageId: {
@@ -52,17 +52,17 @@ export class messages_segmentations extends Model<messages_segmentationsAttribut
       allowNull: false,
       references: {
         model: 'messages',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     segmentationId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'segmentations',
-        key: 'id'
-      }
-    }
+        key: 'id',
+      },
+    },
   }, {
     sequelize,
     tableName: 'messages_segmentations',
@@ -74,23 +74,23 @@ export class messages_segmentations extends Model<messages_segmentationsAttribut
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
       {
         name: "FK_messageId",
         using: "BTREE",
         fields: [
           { name: "messageId" },
-        ]
+        ],
       },
       {
         name: "FK_segmentationId",
         using: "BTREE",
         fields: [
           { name: "segmentationId" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

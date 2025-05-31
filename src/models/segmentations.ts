@@ -60,34 +60,34 @@ export class segmentations extends Model<segmentationsAttributes, segmentationsC
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     name: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
     },
     wilys: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
     },
     enabled: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
-      defaultValue: 1
-    }
+      defaultValue: 1,
+    },
   }, {
     sequelize,
     tableName: 'segmentations',
@@ -100,9 +100,9 @@ export class segmentations extends Model<segmentationsAttributes, segmentationsC
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

@@ -38,15 +38,15 @@ export class service_category_diagnosis extends Model<service_category_diagnosis
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     category_id: {
@@ -54,21 +54,21 @@ export class service_category_diagnosis extends Model<service_category_diagnosis
       allowNull: true,
       references: {
         model: 'service_categories',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     diagnosis_id: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: true,
       references: {
         model: 'service_diagnosis',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     is_success: {
       type: DataTypes.BOOLEAN,
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     sequelize,
     tableName: 'service_category_diagnosis',
@@ -80,23 +80,23 @@ export class service_category_diagnosis extends Model<service_category_diagnosis
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
       {
         name: "category_id",
         using: "BTREE",
         fields: [
           { name: "category_id" },
-        ]
+        ],
       },
       {
         name: "diagnosis_id",
         using: "BTREE",
         fields: [
           { name: "diagnosis_id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

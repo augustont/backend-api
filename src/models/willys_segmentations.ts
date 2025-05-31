@@ -36,15 +36,15 @@ export class willys_segmentations extends Model<willys_segmentationsAttributes, 
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     willyId: {
@@ -52,17 +52,17 @@ export class willys_segmentations extends Model<willys_segmentationsAttributes, 
       allowNull: false,
       references: {
         model: 'willys',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     segmentationId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'segmentations',
-        key: 'id'
-      }
-    }
+        key: 'id',
+      },
+    },
   }, {
     sequelize,
     tableName: 'willys_segmentations',
@@ -74,23 +74,23 @@ export class willys_segmentations extends Model<willys_segmentationsAttributes, 
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
       {
         name: "FK_willys_segmentations_segmentationId",
         using: "BTREE",
         fields: [
           { name: "segmentationId" },
-        ]
+        ],
       },
       {
         name: "FK_willys_segmentations_willyId",
         using: "BTREE",
         fields: [
           { name: "willyId" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

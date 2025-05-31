@@ -22,21 +22,21 @@ export class test_migrations extends Model<test_migrationsAttributes, test_migra
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     name: {
       type: DataTypes.STRING(255),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     sequelize,
     tableName: 'test_migrations',
@@ -48,9 +48,9 @@ export class test_migrations extends Model<test_migrationsAttributes, test_migra
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

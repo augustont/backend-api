@@ -38,15 +38,15 @@ export class order_of_service_audits extends Model<order_of_service_auditsAttrib
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     user_id: {
@@ -54,21 +54,21 @@ export class order_of_service_audits extends Model<order_of_service_auditsAttrib
       allowNull: true,
       references: {
         model: 'users',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     order_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: 'orders_of_service',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     attributes: {
       type: DataTypes.JSON,
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     sequelize,
     tableName: 'order_of_service_audits',
@@ -80,23 +80,23 @@ export class order_of_service_audits extends Model<order_of_service_auditsAttrib
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
       {
         name: "user_id",
         using: "BTREE",
         fields: [
           { name: "user_id" },
-        ]
+        ],
       },
       {
         name: "order_id",
         using: "BTREE",
         fields: [
           { name: "order_id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

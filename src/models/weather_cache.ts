@@ -28,28 +28,28 @@ export class weather_cache extends Model<weather_cacheAttributes, weather_cacheC
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     latitude: {
       type: DataTypes.DECIMAL(11,8),
-      allowNull: true
+      allowNull: true,
     },
     longitude: {
       type: DataTypes.DECIMAL(11,8),
-      allowNull: true
+      allowNull: true,
     },
     probability_rain: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     }
   }, {
     sequelize,
@@ -62,9 +62,9 @@ export class weather_cache extends Model<weather_cacheAttributes, weather_cacheC
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

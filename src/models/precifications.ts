@@ -58,69 +58,69 @@ export class precifications extends Model<precificationsAttributes, precificatio
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     distance_meters: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     duration_seconds: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     total_wilys_online_radius: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     total_order_service_radius: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     probability_rain: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     amount: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     willy_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: 'willys',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     order_service_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: 'orders_of_service',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     forecast_amount: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     willy_request_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: 'willy_requests',
-        key: 'id'
-      }
-    }
+        key: 'id',
+      },
+    },
   }, {
     sequelize,
     tableName: 'precifications',
@@ -132,30 +132,30 @@ export class precifications extends Model<precificationsAttributes, precificatio
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
       {
         name: "willy_id",
         using: "BTREE",
         fields: [
           { name: "willy_id" },
-        ]
+        ],
       },
       {
         name: "order_service_id",
         using: "BTREE",
         fields: [
           { name: "order_service_id" },
-        ]
+        ],
       },
       {
         name: "precifications_ibfk_3",
         using: "BTREE",
         fields: [
           { name: "willy_request_id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

@@ -26,24 +26,24 @@ export class os_categories_types extends Model<os_categories_typesAttributes, os
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     name: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     value: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     }
   }, {
     sequelize,
@@ -56,9 +56,9 @@ export class os_categories_types extends Model<os_categories_typesAttributes, os
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

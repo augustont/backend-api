@@ -44,15 +44,15 @@ export class willys_mapping extends Model<willys_mappingAttributes, willys_mappi
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     willy_id: {
@@ -60,44 +60,44 @@ export class willys_mapping extends Model<willys_mappingAttributes, willys_mappi
       allowNull: true,
       references: {
         model: 'willys',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     question_id: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: true,
     },
     url: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     latitude: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     longitude: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     status: {
       type: DataTypes.ENUM('online','offline'),
       allowNull: true,
-      defaultValue: "offline"
+      defaultValue: "offline",
     },
     accuracy: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     createad_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
+      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP'),
     },
     is_mobile: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: 0
-    }
+      defaultValue: 0,
+    },
   }, {
     sequelize,
     tableName: 'willys_mapping',
@@ -109,16 +109,16 @@ export class willys_mapping extends Model<willys_mappingAttributes, willys_mappi
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
       {
         name: "willy_id",
         using: "BTREE",
         fields: [
           { name: "willy_id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

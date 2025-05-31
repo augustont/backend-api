@@ -59,58 +59,58 @@ export class messages extends Model<messagesAttributes, messagesCreationAttribut
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     title: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: false,
     },
     message: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     segmentations: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
     },
     recurrence: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: true,
     },
     oldStartDate: {
       type: DataTypes.STRING(27),
-      allowNull: true
+      allowNull: true,
     },
     finishDate: {
       type: DataTypes.STRING(27),
-      allowNull: true
+      allowNull: true,
     },
     lastSend: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
     },
     frequency: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     enabled: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
-      defaultValue: 1
+      defaultValue: 1,
     },
     startDate: {
       type: DataTypes.DATE,
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     sequelize,
     tableName: 'messages',
@@ -123,9 +123,9 @@ export class messages extends Model<messagesAttributes, messagesCreationAttribut
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

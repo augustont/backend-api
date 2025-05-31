@@ -20,29 +20,29 @@ export class supply_unit extends Model<supply_unitAttributes, supply_unitCreatio
     return supply_unit.init({
     address: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     name: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     district: {
       type: DataTypes.STRING(255),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     sequelize,
     tableName: 'supply_unit',
-    timestamps: false
+    timestamps: false,
   });
   }
 }

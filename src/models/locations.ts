@@ -34,46 +34,46 @@ export class locations extends Model<locationsAttributes, locationsCreationAttri
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     wily_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     region_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     latitude: {
       type: DataTypes.FLOAT(16,8),
-      allowNull: false
+      allowNull: false,
     },
     longitude: {
       type: DataTypes.FLOAT(16,8),
-      allowNull: false
+      allowNull: false,
     },
     accuracy: {
       type: DataTypes.FLOAT(10,2),
-      allowNull: false
+      allowNull: false,
     },
     speed: {
       type: DataTypes.FLOAT(10,2),
-      allowNull: false
+      allowNull: false,
     },
     datetime: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
-    }
+      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP'),
+    },
   }, {
     sequelize,
     tableName: 'locations',
@@ -85,9 +85,9 @@ export class locations extends Model<locationsAttributes, locationsCreationAttri
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

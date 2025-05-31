@@ -27,28 +27,28 @@ export class phinxlog extends Model<phinxlogAttributes, phinxlogCreationAttribut
     version: {
       type: DataTypes.BIGINT,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     migration_name: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: true,
     },
     start_time: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
     },
     end_time: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
     },
     breakpoint: {
       type: DataTypes.BOOLEAN,
@@ -68,7 +68,7 @@ export class phinxlog extends Model<phinxlogAttributes, phinxlogCreationAttribut
           { name: "version" },
         ]
       },
-    ]
+    ],
   });
   }
 }

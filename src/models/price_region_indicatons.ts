@@ -32,42 +32,42 @@ export class price_region_indicatons extends Model<price_region_indicatonsAttrib
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     latitude: {
       type: DataTypes.DECIMAL(11,8),
-      allowNull: true
+      allowNull: true,
     },
     longitude: {
       type: DataTypes.DECIMAL(11,8),
-      allowNull: true
+      allowNull: true,
     },
     radius: {
       type: DataTypes.DECIMAL(18,8),
-      allowNull: true
+      allowNull: true,
     },
     amount: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     description: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     is_default: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
-      defaultValue: 0
-    }
+      defaultValue: 0,
+    },
   }, {
     sequelize,
     tableName: 'price_region_indicatons',
@@ -79,9 +79,9 @@ export class price_region_indicatons extends Model<price_region_indicatonsAttrib
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

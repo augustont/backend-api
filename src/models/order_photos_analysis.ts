@@ -52,15 +52,15 @@ export class order_photos_analysis extends Model<order_photos_analysisAttributes
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     order_photo_id: {
@@ -68,28 +68,28 @@ export class order_photos_analysis extends Model<order_photos_analysisAttributes
       allowNull: false,
       references: {
         model: 'order_photos',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     willy_request_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: 'willy_requests',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     analysis_id: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: false,
     },
     status: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: false,
     },
     error: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     width_m: {
       type: DataTypes.STRING(255),
@@ -97,20 +97,20 @@ export class order_photos_analysis extends Model<order_photos_analysisAttributes
     },
     height_m: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     area_m: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     bounding_box: {
       type: DataTypes.JSON,
-      allowNull: true
+      allowNull: true,
     },
     thumbnail_url: {
       type: DataTypes.STRING(255),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     sequelize,
     tableName: 'order_photos_analysis',
@@ -122,23 +122,23 @@ export class order_photos_analysis extends Model<order_photos_analysisAttributes
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
       {
         name: "order_photo_id",
         using: "BTREE",
         fields: [
           { name: "order_photo_id" },
-        ]
+        ],
       },
       {
         name: "willy_request_id",
         using: "BTREE",
         fields: [
           { name: "willy_request_id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }
