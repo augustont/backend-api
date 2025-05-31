@@ -32,41 +32,41 @@ export class failed_jobs extends Model<failed_jobsAttributes, failed_jobsCreatio
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     uuid: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     connection: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     queue: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     payload: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     exception: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     failed_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
+      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP'),
     }
   }, {
     sequelize,
@@ -79,9 +79,9 @@ export class failed_jobs extends Model<failed_jobsAttributes, failed_jobsCreatio
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

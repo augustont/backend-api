@@ -42,15 +42,15 @@ export class diagnostic_history extends Model<diagnostic_historyAttributes, diag
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     user_id: {
@@ -58,7 +58,7 @@ export class diagnostic_history extends Model<diagnostic_historyAttributes, diag
       allowNull: true,
       references: {
         model: 'users',
-        key: 'id'
+        key: 'id',
       }
     },
     order_id: {
@@ -66,16 +66,16 @@ export class diagnostic_history extends Model<diagnostic_historyAttributes, diag
       allowNull: true,
       references: {
         model: 'orders_of_service',
-        key: 'id'
+        key: 'id',
       }
     },
     was_performed: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
     }
   }, {
     sequelize,
@@ -88,23 +88,23 @@ export class diagnostic_history extends Model<diagnostic_historyAttributes, diag
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
       {
         name: "user_id",
         using: "BTREE",
         fields: [
           { name: "user_id" },
-        ]
+        ],
       },
       {
         name: "order_id",
         using: "BTREE",
         fields: [
           { name: "order_id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

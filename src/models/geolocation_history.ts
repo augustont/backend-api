@@ -42,15 +42,15 @@ export class geolocation_history extends Model<geolocation_historyAttributes, ge
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     user_id: {
@@ -58,7 +58,7 @@ export class geolocation_history extends Model<geolocation_historyAttributes, ge
       allowNull: true,
       references: {
         model: 'users',
-        key: 'id'
+        key: 'id',
       }
     },
     order_id: {
@@ -66,17 +66,17 @@ export class geolocation_history extends Model<geolocation_historyAttributes, ge
       allowNull: true,
       references: {
         model: 'orders_of_service',
-        key: 'id'
+        key: 'id',
       }
     },
     latitude: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     longitude: {
       type: DataTypes.STRING(255),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     sequelize,
     tableName: 'geolocation_history',
@@ -88,23 +88,23 @@ export class geolocation_history extends Model<geolocation_historyAttributes, ge
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
       {
         name: "user_id",
         using: "BTREE",
         fields: [
           { name: "user_id" },
-        ]
+        ],
       },
       {
         name: "order_id",
         using: "BTREE",
         fields: [
           { name: "order_id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }

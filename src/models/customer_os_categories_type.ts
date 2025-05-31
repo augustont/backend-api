@@ -30,15 +30,15 @@ export class customer_os_categories_type extends Model<customer_os_categories_ty
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
 
   created_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
         },
     customer_id: {
@@ -46,12 +46,12 @@ export class customer_os_categories_type extends Model<customer_os_categories_ty
       allowNull: true,
       references: {
         model: 'customers',
-        key: 'id'
+        key: 'id',
       }
     },
     type_id: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     }
   }, {
     sequelize,
@@ -64,16 +64,16 @@ export class customer_os_categories_type extends Model<customer_os_categories_ty
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
+        ],
       },
       {
         name: "customer_id",
         using: "BTREE",
         fields: [
           { name: "customer_id" },
-        ]
+        ],
       },
-    ]
+    ],
   });
   }
 }
