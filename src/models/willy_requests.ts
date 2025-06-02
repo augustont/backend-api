@@ -2,7 +2,6 @@ import * as Sequelize from 'sequelize';
 import { DataTypes, Model, Optional } from 'sequelize';
 import type { orders_of_service, orders_of_serviceId } from './orders_of_service';
 import type { users, usersId } from './users';
-import type { willys, willysId } from './willys';
 
 export interface willy_requestsAttributes {
   id: number;
