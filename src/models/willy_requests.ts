@@ -1,11 +1,6 @@
 import * as Sequelize from 'sequelize';
 import { DataTypes, Model, Optional } from 'sequelize';
-import type { order_photos_analysis, order_photos_analysisId } from './order_photos_analysis';
 import type { orders_of_service, orders_of_serviceId } from './orders_of_service';
-import type { os_offers, os_offersId } from './os_offers';
-import type { payment_bonnus, payment_bonnusId } from './payment_bonnus';
-import type { payment_indications, payment_indicationsId } from './payment_indications';
-import type { precifications, precificationsId } from './precifications';
 import type { users, usersId } from './users';
 import type { willys, willysId } from './willys';
 

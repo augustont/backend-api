@@ -1,7 +1,6 @@
 import * as Sequelize from 'sequelize';
 import { DataTypes, Model, Optional } from 'sequelize';
 import type { customers, customersId } from './customers';
-import type { execution_unit_user, execution_unit_userId } from './execution_unit_user';
 import type { orders_of_service, orders_of_serviceId } from './orders_of_service';
 import type { users, usersId } from './users';
 
@@ -50,19 +49,6 @@ export class execution_units extends Model<execution_unitsAttributes, execution_
   getCustomer!: Sequelize.BelongsToGetAssociationMixin<customers>;
   setCustomer!: Sequelize.BelongsToSetAssociationMixin<customers, customersId>;
   createCustomer!: Sequelize.BelongsToCreateAssociationMixin<customers>;
-  // execution_units hasMany execution_unit_user via execution_unit_id
-  execution_unit_users!: execution_unit_user[];
-  getExecution_unit_users!: Sequelize.HasManyGetAssociationsMixin<execution_unit_user>;
-  setExecution_unit_users!: Sequelize.HasManySetAssociationsMixin<execution_unit_user, execution_unit_userId>;
-  addExecution_unit_user!: Sequelize.HasManyAddAssociationMixin<execution_unit_user, execution_unit_userId>;
-  addExecution_unit_users!: Sequelize.HasManyAddAssociationsMixin<execution_unit_user, execution_unit_userId>;
-  createExecution_unit_user!: Sequelize.HasManyCreateAssociationMixin<execution_unit_user>;
-  removeExecution_unit_user!: Sequelize.HasManyRemoveAssociationMixin<execution_unit_user, execution_unit_userId>;
-  removeExecution_unit_users!: Sequelize.HasManyRemoveAssociationsMixin<execution_unit_user, execution_unit_userId>;
-  hasExecution_unit_user!: Sequelize.HasManyHasAssociationMixin<execution_unit_user, execution_unit_userId>;
-  hasExecution_unit_users!: Sequelize.HasManyHasAssociationsMixin<execution_unit_user, execution_unit_userId>;
-  countExecution_unit_users!: Sequelize.HasManyCountAssociationsMixin;
-  // execution_units hasMany orders_of_service via execution_unit_id
   orders_of_services!: orders_of_service[];
   getOrders_of_services!: Sequelize.HasManyGetAssociationsMixin<orders_of_service>;
   setOrders_of_services!: Sequelize.HasManySetAssociationsMixin<orders_of_service, orders_of_serviceId>;

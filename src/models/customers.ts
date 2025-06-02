@@ -1,8 +1,6 @@
 import * as Sequelize from 'sequelize';
 import { DataTypes, Model, Optional } from 'sequelize';
-import type { customer_os_categories_type, customer_os_categories_typeId } from './customer_os_categories_type';
 import type { execution_units, execution_unitsId } from './execution_units';
-import type { service_categories, service_categoriesId } from './service_categories';
 
 export interface customersAttributes {
   id: number;
@@ -30,18 +28,7 @@ export class customers extends Model<customersAttributes, customersCreationAttri
   quantidade_unidades?: number;
   logo?: string;
 
-  // customers hasMany customer_os_categories_type via customer_id
-  customer_os_categories_types!: customer_os_categories_type[];
-  getCustomer_os_categories_types!: Sequelize.HasManyGetAssociationsMixin<customer_os_categories_type>;
-  setCustomer_os_categories_types!: Sequelize.HasManySetAssociationsMixin<customer_os_categories_type, customer_os_categories_typeId>;
-  addCustomer_os_categories_type!: Sequelize.HasManyAddAssociationMixin<customer_os_categories_type, customer_os_categories_typeId>;
-  addCustomer_os_categories_types!: Sequelize.HasManyAddAssociationsMixin<customer_os_categories_type, customer_os_categories_typeId>;
-  createCustomer_os_categories_type!: Sequelize.HasManyCreateAssociationMixin<customer_os_categories_type>;
-  removeCustomer_os_categories_type!: Sequelize.HasManyRemoveAssociationMixin<customer_os_categories_type, customer_os_categories_typeId>;
-  removeCustomer_os_categories_types!: Sequelize.HasManyRemoveAssociationsMixin<customer_os_categories_type, customer_os_categories_typeId>;
-  hasCustomer_os_categories_type!: Sequelize.HasManyHasAssociationMixin<customer_os_categories_type, customer_os_categories_typeId>;
-  hasCustomer_os_categories_types!: Sequelize.HasManyHasAssociationsMixin<customer_os_categories_type, customer_os_categories_typeId>;
-  countCustomer_os_categories_types!: Sequelize.HasManyCountAssociationsMixin;
+
   // customers hasMany execution_units via customer_id
   execution_units!: execution_units[];
   getExecution_units!: Sequelize.HasManyGetAssociationsMixin<execution_units>;
@@ -54,18 +41,6 @@ export class customers extends Model<customersAttributes, customersCreationAttri
   hasExecution_unit!: Sequelize.HasManyHasAssociationMixin<execution_units, execution_unitsId>;
   hasExecution_units!: Sequelize.HasManyHasAssociationsMixin<execution_units, execution_unitsId>;
   countExecution_units!: Sequelize.HasManyCountAssociationsMixin;
-  // customers hasMany service_categories via customer_id
-  service_categories!: service_categories[];
-  getService_categories!: Sequelize.HasManyGetAssociationsMixin<service_categories>;
-  setService_categories!: Sequelize.HasManySetAssociationsMixin<service_categories, service_categoriesId>;
-  addService_category!: Sequelize.HasManyAddAssociationMixin<service_categories, service_categoriesId>;
-  addService_categories!: Sequelize.HasManyAddAssociationsMixin<service_categories, service_categoriesId>;
-  createService_category!: Sequelize.HasManyCreateAssociationMixin<service_categories>;
-  removeService_category!: Sequelize.HasManyRemoveAssociationMixin<service_categories, service_categoriesId>;
-  removeService_categories!: Sequelize.HasManyRemoveAssociationsMixin<service_categories, service_categoriesId>;
-  hasService_category!: Sequelize.HasManyHasAssociationMixin<service_categories, service_categoriesId>;
-  hasService_categories!: Sequelize.HasManyHasAssociationsMixin<service_categories, service_categoriesId>;
-  countService_categories!: Sequelize.HasManyCountAssociationsMixin;
 
   static initModel(sequelize: Sequelize.Sequelize): typeof customers {
     return customers.init({
