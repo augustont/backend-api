@@ -37,15 +37,6 @@ export class bonus_campaign_wilys extends Model<bonus_campaign_wilysAttributes, 
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true,
-
-  created_at: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
-  updated_at: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
         },
     willy_id: {
       type: DataTypes.INTEGER,
@@ -66,7 +57,7 @@ export class bonus_campaign_wilys extends Model<bonus_campaign_wilysAttributes, 
   }, {
     sequelize,
     tableName: 'bonus_campaign_wilys',
-    timestamps: false,
+    timestamps: true,
     indexes: [
       {
         name: "PRIMARY",

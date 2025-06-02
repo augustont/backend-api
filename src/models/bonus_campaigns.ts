@@ -1,6 +1,5 @@
 import * as Sequelize from 'sequelize';
 import { DataTypes, Model, Optional } from 'sequelize';
-import type { bonus_campaign_dispatchs, bonus_campaign_dispatchsId } from './bonus_campaign_dispatchs';
 import type { bonus_campaign_wilys, bonus_campaign_wilysId } from './bonus_campaign_wilys';
 
 export interface bonus_campaignsAttributes {
@@ -12,14 +11,12 @@ export interface bonus_campaignsAttributes {
   start_date?: string;
   final_date?: string;
   status?: string;
-  created_at: Date;
-  updated_at?: Date;
   deleted_at?: Date;
 }
 
 export type bonus_campaignsPk = "id";
 export type bonus_campaignsId = bonus_campaigns[bonus_campaignsPk];
-export type bonus_campaignsOptionalAttributes = "id" | "name" | "type" | "quantity_inspections" | "bonus_amount" | "start_date" | "final_date" | "status" | "created_at" | "updated_at" | "deleted_at";
+export type bonus_campaignsOptionalAttributes = "id" | "name" | "type" | "quantity_inspections" | "bonus_amount" | "start_date" | "final_date" | "status" | "deleted_at";
 export type bonus_campaignsCreationAttributes = Optional<bonus_campaignsAttributes, bonus_campaignsOptionalAttributes>;
 
 export class bonus_campaigns extends Model<bonus_campaignsAttributes, bonus_campaignsCreationAttributes> implements bonus_campaignsAttributes {
@@ -99,7 +96,7 @@ export class bonus_campaigns extends Model<bonus_campaignsAttributes, bonus_camp
   }, {
     sequelize,
     tableName: 'bonus_campaigns',
-    timestamps: false,
+    timestamps: true,
     paranoid: true,
     indexes: [
       {
