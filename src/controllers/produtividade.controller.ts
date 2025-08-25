@@ -1,9 +1,18 @@
 import { Request, Response } from "express";
-import { Op, fn, col, literal } from "sequelize";
+import { Op, fn, col } from "sequelize";
 import models from "../models";
+// ⬇️ Ajuste aqui: import de default export do cache util
+import cache from "../utils/cache";
 
 export async function getProdutividadeDashboard(req: Request, res: Response) {
-  const { periodo = "diaria" } = req.query;
+  // Garante string e default
+  const periodo = String(req.query.periodo ?? "diaria");
+
+  const cacheKey = `produtividade:${periodo}`;
+  const cached = cache.get(cacheKey);
+  if (cached) {
+    return res.json(cached);
+  }
 
   const agora = new Date();
   let dataInicial: Date;
@@ -11,15 +20,18 @@ export async function getProdutividadeDashboard(req: Request, res: Response) {
 
   switch (periodo) {
     case "mensal":
-      dataInicial = new Date(agora.getFullYear(), agora.getMonth() - 5, 1); // últimos 6 meses
+      // últimos 6 meses
+      dataInicial = new Date(agora.getFullYear(), agora.getMonth() - 5, 1);
       groupFormat = "%Y-%m"; // Agrupa por mês
       break;
     case "trimestral":
-      dataInicial = new Date(agora.getFullYear() - 1, agora.getMonth(), 1); // últimos 12 meses
+      // últimos 12 meses
+      dataInicial = new Date(agora.getFullYear() - 1, agora.getMonth(), 1);
       groupFormat = "%Y-%m"; // Também agrupa por mês
       break;
     default:
-      dataInicial = new Date(agora.getFullYear(), agora.getMonth(), agora.getDate() - 6); // últimos 7 dias
+      // últimos 7 dias
+      dataInicial = new Date(agora.getFullYear(), agora.getMonth(), agora.getDate() - 6);
       groupFormat = "%Y-%m-%d"; // Agrupa por dia
   }
 
@@ -33,6 +45,8 @@ export async function getProdutividadeDashboard(req: Request, res: Response) {
         status: "concluída",
         end_inspection_date: { [Op.gte]: dataInicial }
       },
+      // Observação: algumas versões do Sequelize aceitam string em group/order.
+      // Se preferir, pode trocar por Sequelize.literal, mas mantive como estava.
       group: [fn(`DATE_FORMAT(end_inspection_date, '${groupFormat}')`)],
       order: [fn(`periodo ASC`)]
     });
@@ -67,6 +81,9 @@ export async function getProdutividadeDashboard(req: Request, res: Response) {
       metaPorItem: periodo === "diaria" ? 200 : periodo === "mensal" ? 2000 : 6000,
       ranking: ranking.map((r: any) => ({ nome: r.get("nome"), total: r.get("total") }))
     };
+
+    // TTL de 180s
+    cache.set(cacheKey, resposta, 180);
 
     return res.json(resposta);
   } catch (error) {
