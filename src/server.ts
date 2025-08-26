@@ -22,7 +22,7 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-app.use("/produtividade", dashboardRoutes);
+app.use("/dashboard", dashboardRoutes);
 app.use("/operadores", rankingRoutes);
 app.use("/dashboard", produtividadeRoutes);
 
